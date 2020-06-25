@@ -1,0 +1,40 @@
+header
+    display: grid
+    grid-template-columns: auto 1fr
+    align-items: center
+    position: absolute
+    top: 0
+    left: 0
+    height: 60px
+    width: 100%
+    background-color: #1976d2
+
+    .header__img_container
+        height: 60px
+        padding-left: 300px
+
+        img
+            height: 100%
+
+    .header__nav
+        display: grid
+        grid-template-columns: repeat(2,auto)
+        grid-column-gap: 30px 
+        align-items: center
+        justify-self: end
+        padding-right: 300px
+
+        .header__nav__item
+            img
+                height: 25px
+                color: #fff
+            
+            a
+                color: #fff
+                font-size: 24px
+                text-transform: uppercase
+                text-decoration: none
+                font-weight: lighter
+            &:hover
+                cursor: pointer
+                color: red
