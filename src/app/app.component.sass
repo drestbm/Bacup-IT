@@ -2,7 +2,7 @@ header
     display: grid
     grid-template-columns: auto 1fr
     align-items: center
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     height: 60px
@@ -18,23 +18,58 @@ header
 
     .header__nav
         display: grid
-        grid-template-columns: repeat(2,auto)
+        grid-template-columns: 200px 140px 200px
         grid-column-gap: 30px 
         align-items: center
         justify-self: end
         padding-right: 300px
 
-        .header__nav__item
+        &__item
+            display: grid
+            grid-template-columns: 20px 1fr
+            grid-column-gap: 5px 
+            align-items: center
+            justify-items: start
+
             img
-                height: 25px
-                color: #fff
+                height: 20px
             
             a
                 color: #fff
-                font-size: 24px
+                font-size: 18px
                 text-transform: uppercase
                 text-decoration: none
                 font-weight: lighter
-            &:hover
-                cursor: pointer
-                color: red
+
+                &:hover
+                    cursor: pointer
+                    text-decoration: underline
+
+        .header__nav__search
+            display: grid
+            grid-template-columns: 1fr 25px
+            border-radius: 5px
+            background-color: #1866b4
+            height: 30px
+
+            input
+                border: none
+                background: none
+                outline: none
+                color: #fff
+                text-transform: uppercase
+                padding: 0
+                padding-left: 10px
+                height: 26px
+                width: 150px
+                margin: 2px 0
+
+                &::placeholder
+                    color: #8bc5ff
+                    font-weight: bold
+                    text-transform: uppercase
+
+            img
+                margin-top: 8px 
+                height: 15px
+
