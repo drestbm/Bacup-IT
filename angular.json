@@ -121,8 +121,15 @@
               "devServerTarget": "Bacup-IT:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://drestbm.github.io/Bacup-IT/",
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Bacup-IT"
 }
