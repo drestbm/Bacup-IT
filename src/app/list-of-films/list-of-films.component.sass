@@ -25,20 +25,30 @@
 
         &__descr
             display: grid
-            grid-template-rows: minmax(30px, 60px) 1fr 1fr
+            grid-template-rows: 40px 20px 1fr 1fr
             margin: 20px
             margin-left: 0
 
-            &__add
-                display: grid
-                grid-template-columns: repeat(3, auto)
-                width: 200px
+            &__name
+                align-self: end
 
-                h2
-                    font-size: 14px
-                    margin: 0
-                    color: #696969
-                    width: 100%
+            // &__add
+            //     display: grid
+            //     grid-template-columns: repeat(3, auto)
+            //     width: 200px
+            //     margin-top: 7px
+
+            &__genres
+                display: grid
+                grid-template-columns: repeat(4, auto)
+
+                &__genre
+                    width: 100px
+
+            h2
+                font-size: 14px
+                margin: 0
+                color: #696969
             
             &__favorite
                 align-self: end

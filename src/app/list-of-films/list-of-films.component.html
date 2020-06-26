@@ -5,11 +5,10 @@
         </div>
         <div class="list__item__descr">
             <h1 class="list__item__descr__name">{{film.title}}</h1>
-            <div class="list__item__descr__add">
-                <h2 class="list__item__descr__add__country">{{film.original_language}}</h2>
-                <h2 class="list__item__descr__add__year">{{film.release_date}}</h2>
-                <h2 class="list__item__descr__add__genre">{{film.genre_ids}}</h2>
+            <div class="list__item__descr__genres">
+                <div *ngFor="let genre_id of film.genre_ids; let i = index" class="list__item__descr__genres__genre"><h2>{{genresService.searchGenres(genre_id)}}</h2></div>
             </div>
+            <h2 class="list__item__descr__year">{{film.release_date.slice(0, 4)}} г.</h2>
             <a class="list__item__descr__favorite">+ Добавить в избранное</a>
         </div>
     </div>
