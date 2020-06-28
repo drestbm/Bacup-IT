@@ -1,24 +1,14 @@
-<header>
-  <div class="header__img_container">
-    <img src="assets/logo.png" alt="DrestX"/>
-  </div>
-  <nav class="header__nav">
-    <div class="header__nav__item">
-      <img src="assets/list.svg" alt="">
-      <a href="" >
-        Список фильмов
-      </a>
-    </div>
-    <div class="header__nav__item">
-      <img src="assets/star.svg" alt="">
-      <a href="favorite">
-        Избранное
-      </a>
-    </div>
-    <div class="header__nav__search">
-      <input type="text" placeholder="Название фильма">
-      <img src="assets/search.svg" alt="">
-    </div>
-  </nav>
-</header>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="logo"><img src="assets/logo.png" alt="DrestX"/></span>
+    <span class="example-spacer"></span>
+    <input class="header__search" type="text" placeholder="Название фильма">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>local_movies</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>favorite border</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 <router-outlet></router-outlet>

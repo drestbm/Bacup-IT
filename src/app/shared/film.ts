@@ -12,7 +12,7 @@ export interface Film {
     title: string
     vote_average: number
     overview: string
-    release_date: Date
+    release_date: string
 }
 
 export interface ListOfFilms {

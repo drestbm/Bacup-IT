@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListOfFilmsService } from '../shared/list-of-films.service'
 import { GenreService } from '../shared/genre.service'
+import { Film } from '../shared/film'
 
 @Component({
   selector: 'app-list-of-films',
@@ -25,6 +26,11 @@ export class ListOfFilmsComponent implements OnInit {
     })
   }
 
-  
-
+  getGenres(film: Film): string {
+    let result = ""
+    for (let genre_id of film.genre_ids) {
+      result += ", " + this.genresService.searchGenres(genre_id)
+    }
+    return result.slice(1)
+  }
 }

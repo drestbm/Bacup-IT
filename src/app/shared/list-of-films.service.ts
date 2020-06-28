@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpParams }   from '@angular/common/http';
-import { Film, ListOfFilms } from '../shared/film'
+import { ListOfFilms } from '../shared/film'
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 

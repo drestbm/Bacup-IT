@@ -1,75 +1,44 @@
-header
-    display: grid
-    grid-template-columns: auto 1fr
-    align-items: center
+mat-toolbar
     position: fixed
     top: 0
     left: 0
-    height: 60px
-    width: 100%
-    background-color: #1976d2
+    z-index: 10
 
-    .header__img_container
-        height: 60px
-        padding-left: 300px
-
-        img
-            height: 100%
-
-    .header__nav
-        display: grid
-        grid-template-columns: 200px 140px 200px
-        grid-column-gap: 30px 
-        align-items: center
-        justify-self: end
-        padding-right: 300px
-
-        &__item
-            display: grid
-            grid-template-columns: 20px 1fr
-            grid-column-gap: 5px 
-            align-items: center
-            justify-items: start
-
-            img
-                height: 20px
-            
-            a
-                color: #fff
-                font-size: 18px
-                text-transform: uppercase
-                text-decoration: none
-                font-weight: lighter
-
-                &:hover
-                    cursor: pointer
-                    text-decoration: underline
-
-        .header__nav__search
-            display: grid
-            grid-template-columns: 1fr 25px
+    mat-toolbar-row
+        .header__search
+            padding: 8px 10px
             border-radius: 5px
-            background-color: #1866b4
-            height: 30px
+            border: none
+            text-transform: uppercase
+            background-color: #374590
+            outline: none
+            color: #ffffff
+            font-family: Roboto, Arial, sans-serif
+            font-weight: bolder
+            margin: 0 10px
+            width: 200px
 
-            input
-                border: none
-                background: none
-                outline: none
-                color: #fff
-                text-transform: uppercase
-                padding: 0
-                padding-left: 10px
-                height: 26px
-                width: 150px
-                margin: 2px 0
+            &::placeholder
+                color: #c7c7c7
 
-                &::placeholder
-                    color: #8bc5ff
-                    font-weight: bold
-                    text-transform: uppercase
+        .mat-form-field-wrapper
+            padding: 0
+            margin: 20px
+
+        .logo
+            height: 60px
 
             img
-                margin-top: 8px 
-                height: 15px
+                height: 100%
 
+        .example-spacer
+            flex: 1 1 auto
+
+        @media only screen and (max-device-width : 1024px)
+            padding: 0 20px
+
+        @media only screen and (min-width : 1224px)
+            padding: 0 calc(50% - 600px)
+
+        @media only screen and (min-width : 1824px)
+            padding: 0 calc(50% - 600px)
