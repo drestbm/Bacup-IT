@@ -1,4 +1,9 @@
-<div class="list">
+<!-- <mat-paginator [length]="1"
+        [pageSize]="1"
+        [pageSizeOptions]="1"
+        (page)="pageEvent = $event">
+</mat-paginator> -->
+<div *ngIf="!loading" class="list">
     <mat-card *ngFor="let film of listOfFilmsService.list.results; let i = index">
         <mat-card-title-group>
             <mat-card-title>{{film.title}}</mat-card-title>
@@ -12,3 +17,6 @@
         </mat-card-actions>
     </mat-card>
 </div>
+
+<mat-spinner *ngIf="loading" class="preloader"></mat-spinner>
+

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 
+
+import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListOfFilmsComponent } from './list-of-films/list-of-films.component';
@@ -25,6 +27,7 @@ import { AboutFilmComponent } from './about-film/about-film.component';
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/Bacup-IT/'}],
   bootstrap: [AppComponent]

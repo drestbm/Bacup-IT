@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ListOfFilmsService } from './shared/list-of-films.service'
+
 
 @Component({
   selector: 'body',
@@ -8,9 +10,12 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Bacup-IT';
-  nameFilmControl = new FormControl('');
+  name: string = ""
+
+  constructor(public listOfFilmsService:ListOfFilmsService) {}
 
   onChangeName() {
-    console.log(this.nameFilmControl)
+    if (this.name !== "")
+      this.listOfFilmsService.searchFilm(this.name)
   }
 }
