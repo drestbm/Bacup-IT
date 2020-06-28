@@ -12,6 +12,7 @@ import { Film } from '../shared/film'
 
 export class ListOfFilmsComponent implements OnInit {
   private loading: boolean = true
+  public name: string = ""
   
   constructor(public listOfFilmsService:ListOfFilmsService, public genresService:GenreService) {}
 

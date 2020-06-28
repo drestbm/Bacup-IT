@@ -1,112 +1,14 @@
-<div class="favorite">
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div><div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>   
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>
-    <div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div><div class="favorite__item">
-        <div class="favorite__item__photo">
-            <img src="assets/photo.jpg" alt="">
-        </div>
-        <div class="favorite__item__descr">
-            <h1 class="favorite__item__descr__name">Название фильма</h1>
-            <div class="favorite__item__descr__add">
-                <h2 class="favorite__item__descr__add__country">Страна</h2>
-                <h2 class="favorite__item__descr__add__year">Год выхода</h2>
-                <h2 class="favorite__item__descr__add__genre">Жанр</h2>
-            </div>
-            <a class="favorite__item__descr__del">- Удалить из избранного</a>
-        </div>
-    </div>   
+<div class="list">
+    <mat-card *ngFor="let film of listOfFilmsService.list.results; let i = index">
+        <mat-card-title-group>
+            <mat-card-title>{{film.title}}</mat-card-title>
+            <mat-card-subtitle>
+                {{film.release_date.slice(0, 4) + " г."}}<br>{{getGenres(film)}}
+            </mat-card-subtitle>
+            <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+film.poster_path" [alt]="film.title">
+        </mat-card-title-group>
+        <mat-card-actions align="end">
+            <button mat-button>+ Добавить в избранное</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

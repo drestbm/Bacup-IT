@@ -9,13 +9,15 @@ import { FavoriteFilmsComponent } from './favorite-films/favorite-films.componen
 import { HttpClientModule }   from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material-module';
+import { AboutFilmComponent } from './about-film/about-film.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListOfFilmsComponent,
-    FavoriteFilmsComponent
+    FavoriteFilmsComponent,
+    AboutFilmComponent
   ],
   imports: [
     BrowserModule,
