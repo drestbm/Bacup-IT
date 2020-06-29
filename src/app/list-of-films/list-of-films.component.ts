@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ListOfFilmsService } from '../shared/list-of-films.service'
 import { GenreService } from '../shared/genre.service'
 import { Film } from '../shared/film'
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-of-films',
@@ -11,19 +12,20 @@ import { Film } from '../shared/film'
 })
 
 export class ListOfFilmsComponent implements OnInit {
-  public loading: boolean = true
+  loading: boolean = true;
+  pageEvent: PageEvent;
+  name:string = ""
   
   constructor(public listOfFilmsService:ListOfFilmsService, public genresService:GenreService) {}
 
   ngOnInit(): void {
     this.listOfFilmsService.downloadList()
       .subscribe(() => {
-        this.loading = false
+        this.genresService.downloadList()
+          .subscribe(() => {
+            this.loading = false
+        })
       })
-    this.genresService.downloadList()
-      .subscribe(() => {
-        this.loading = false
-    })
   }
 
   getGenres(film: Film): string {
@@ -32,5 +34,36 @@ export class ListOfFilmsComponent implements OnInit {
       result += ", " + this.genresService.searchGenres(genre_id)
     }
     return result.slice(1)
+  }
+
+  turnPage(event?:PageEvent) {
+    if (this.name === "") {
+      this.loading = true
+      this.listOfFilmsService.downloadList(event.pageIndex+1)
+        .subscribe(() => {
+          this.loading = false
+        })}
+    else {
+      this.listOfFilmsService.searchFilm(this.name, event.pageIndex+1)
+        .subscribe(() => {
+          this.loading = false
+        })
+    }
+    return event
+  }
+
+  searchFilm(){
+    if (this.name === "") {
+      this.loading = true
+      this.listOfFilmsService.downloadList()
+        .subscribe(() => {
+          this.loading = false
+        })}
+    else {
+      this.listOfFilmsService.searchFilm(this.name)
+        .subscribe(() => {
+          this.loading = false
+        })
+    }
   }
 }

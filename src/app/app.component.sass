@@ -3,24 +3,14 @@ mat-toolbar
     top: 0
     left: 0
     z-index: 10
+    padding: 0 calc(50% - 600px)
+
+    @media only screen and (max-device-width : 1024px)
+        padding: 0 20px
 
     mat-toolbar-row
-        .header__search
-            padding: 8px 10px
-            border-radius: 5px
-            border: none
-            text-transform: uppercase
-            background-color: #374590
-            outline: none
-            color: #ffffff
-            font-family: Roboto, Arial, sans-serif
-            font-weight: bolder
-            margin: 0 10px
-            width: 170px
-
-            &::placeholder
-                color: #c7c7c7
-
+        padding: 0 20px
+        width: calc(100% - 40px)
         .mat-form-field-wrapper
             padding: 0
             margin: 20px
@@ -34,11 +24,4 @@ mat-toolbar
         .example-spacer
             flex: 1 1 auto
 
-        @media only screen and (max-device-width : 1024px)
-            padding: 0 20px
-
-        @media only screen and (min-width : 1224px)
-            padding: 0 calc(50% - 600px)
-
-        @media only screen and (min-width : 1824px)
-            padding: 0 calc(50% - 600px)
+        
