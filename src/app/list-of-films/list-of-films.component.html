@@ -10,9 +10,9 @@
             <mat-card-title-group>
                 <mat-card-title>{{film.title}}</mat-card-title>
                 <mat-card-subtitle>
-                    {{film.release_date.slice(0, 4) + " г."}}<br>{{getGenres(film)}}
+                    {{film.release_date.slice(0, 4)}}<br>{{getGenres(film)}}
                 </mat-card-subtitle>
-                <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+film.poster_path" [alt]="film.title">
+                <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+film.poster_path" [alt]="film.title" (error)="errorHandler($event)">
             </mat-card-title-group>
             <mat-card-actions align="end">
                 <button mat-button>+ Добавить в избранное</button>

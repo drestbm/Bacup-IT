@@ -66,4 +66,8 @@ export class ListOfFilmsComponent implements OnInit {
         })
     }
   }
+
+  errorHandler(event) {
+    event.target.src = "assets/close.png";
+  }
 }
