@@ -6,30 +6,36 @@ import { MovieModel } from '../../models/movie.model'
 import { PopularMoviesService } from '../../services/popular-movies.service'
 import { GenreService } from '../../services/genre.service'
 import { LocalStorageService } from '../../services/local-storage.service'
+import { forkJoin } from 'rxjs'
+import { animation } from '../../includes/animation.module'
 
 @Component({
   selector: 'app-popular-movies',
   templateUrl: './popular-movies.component.html',
-  styleUrls: ['./popular-movies.component.sass']
+  styleUrls: ['./popular-movies.component.sass'],
+  animations: [
+    animation  
+  ]
 })
 
 export class PopularMoviesComponent implements OnInit {
   loading: boolean = true
   pageEvent: PageEvent
   name:string = ""
+  state: string = "invisible"
   
   constructor(private popularMoviesService:PopularMoviesService, private genresService:GenreService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.localStorageService.init()
-    console.log(this.localStorageService.list)
-    this.popularMoviesService.downloadList()
-      .subscribe(() => {
-        this.genresService.downloadList()
-          .subscribe(() => {
-            this.loading = false
-        })
-      })
+
+    forkJoin(
+      this.popularMoviesService.downloadList(),
+      this.genresService.downloadList()
+    ).subscribe(() => { 
+      this.loading = false 
+      this.state= "visible"
+    })
   }
 
   getGenres(movie: MovieModel): string {

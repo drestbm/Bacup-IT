@@ -23,7 +23,6 @@ export class PopularMoviesService {
             })
             return this.list
         }))
-        // tap(list => this.list = list)
     }
 
     searchMovies(name: string, page:number = 1): Observable<MoviesModel> {

@@ -1,7 +1,7 @@
-<section class="content">
-    <div *ngIf="!loading" class="list">
-        <mat-card *ngFor="let movie of getFavoriteMovies(); let i = index">
-            <mat-card-title-group>
+<section class="favorite_wrapper" [@opacityAnimation] = "state">
+    <div *ngIf="!loading" class="favorite_wrapper__list">
+        <mat-card *ngFor="let movie of getFavoriteMovies(); let i = index" class="favorite_wrapper__list__item">
+            <mat-card-title-group [routerLink]="['/movie',movie.id]">
                 <mat-card-title>{{movie.title}}</mat-card-title>
                 <mat-card-subtitle>
                     {{movie.release_date.slice(0, 4)}}<br>{{getGenres(movie)}}
@@ -13,5 +13,9 @@
             </mat-card-actions>
         </mat-card>
     </div>
-    <mat-spinner *ngIf="loading" class="preloader"></mat-spinner>
+    <div *ngIf="getFavoriteMovies().length === 0" class="favorite_wrapper__no_item">
+        <h2 class="favorite_wrapper__no_item__title">Вы пока не добавили ни одного фильма в свой список избранного</h2>
+        <img class="favorite_wrapper__no_item__img" src="assets/search.svg" alt="search">
+    </div>
+    
 </section>

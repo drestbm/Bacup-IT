@@ -18,6 +18,7 @@ export class LocalStorageService {
     }
 
     add(movie:MovieModel): void {
+        console.log(movie)
         this.list.results.push(movie)
         this.list.total_results++
         this.list.total_pages = Math.ceil(this.list.total_results / 20)
