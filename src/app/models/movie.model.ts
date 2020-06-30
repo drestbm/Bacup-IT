@@ -1,4 +1,4 @@
-export interface Film {
+export interface MovieModel {
     popularity: number
     vote_count: number
     video: boolean
@@ -13,11 +13,5 @@ export interface Film {
     vote_average: number
     overview: string
     release_date: string
-}
-
-export interface ListOfFilms {
-    page: number
-    total_results: number
-    total_pages: number
-    results: Array<Film>
+    isFavorite: boolean
 }

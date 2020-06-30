@@ -1,25 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule }   from '@angular/forms'
+import { AppRoutingModule } from './app-routing.module'
+import { HttpClientModule }   from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MaterialModule } from './includes/material-module'
+import {APP_BASE_HREF} from '@angular/common'
 
+import { AppComponent } from './app.component'
 
-import { FormsModule }   from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ListOfFilmsComponent } from './list-of-films/list-of-films.component';
-import { FavoriteFilmsComponent } from './favorite-films/favorite-films.component';
-import { HttpClientModule }   from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MaterialModule } from './material-module';
-import { AboutFilmComponent } from './about-film/about-film.component';
+import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component'
+import { FavoriteMoviesComponent } from './components/favorite-movies/favorite-movies.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListOfFilmsComponent,
-    FavoriteFilmsComponent,
-    AboutFilmComponent
+    PopularMoviesComponent,
+    FavoriteMoviesComponent,
   ],
   imports: [
     BrowserModule,

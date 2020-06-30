@@ -1,4 +1,4 @@
-mat-toolbar
+.header
     position: fixed
     top: 0
     left: 0
@@ -8,20 +8,20 @@ mat-toolbar
     @media only screen and (max-device-width : 1024px)
         padding: 0 20px
 
-    mat-toolbar-row
+    &__navbar
         padding: 0 20px
         width: calc(100% - 40px)
-        .mat-form-field-wrapper
-            padding: 0
-            margin: 20px
+        // .mat-form-field-wrapper
+        //     padding: 0
+        //     margin: 20px
 
-        .logo
+        &__logo
             height: 60px
 
             img
                 height: 100%
 
-        .example-spacer
+        &__space
             flex: 1 1 auto
 
 .active

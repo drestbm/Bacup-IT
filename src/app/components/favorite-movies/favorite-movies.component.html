@@ -1,0 +1,17 @@
+<section class="content">
+    <div *ngIf="!loading" class="list">
+        <mat-card *ngFor="let movie of getFavoriteMovies(); let i = index">
+            <mat-card-title-group>
+                <mat-card-title>{{movie.title}}</mat-card-title>
+                <mat-card-subtitle>
+                    {{movie.release_date.slice(0, 4)}}<br>{{getGenres(movie)}}
+                </mat-card-subtitle>
+                <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
+            </mat-card-title-group>
+            <mat-card-actions align="end">
+                <button mat-button (click)="deleteFavoriteMovie(movie)">- Удалить из избранного</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <mat-spinner *ngIf="loading" class="preloader"></mat-spinner>
+</section>

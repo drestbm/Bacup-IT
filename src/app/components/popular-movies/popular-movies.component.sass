@@ -1,4 +1,4 @@
-.content
+.movies_wrapper
     display: grid
     grid-template-rows: 70px 1fr 60px
     grid-row-gap: 10px
@@ -13,26 +13,30 @@
     @media only screen and (max-device-width : 1024px)
         width: calc(100% - 20px)
 
-    .list__header
+    &__header
         width: 100%
         padding: 0
         
-        .example-full-width
+        &__search
             width: calc(100% - 20px)
             margin: 10px
             margin-bottom: 0px
 
-    .list
+    &__list
         display: grid
         grid-template-columns: repeat(auto-fill, minmax(300px,1fr))
         grid-gap: 10px
         width: 100%
 
-    img
-        height: 200px
-        width: auto
+        &__item
 
-// .up
-//     position: fixed
-//     bottom: 20px
-//     right: 20px
+            &__is_favorite
+                color: #f44336
+
+            img
+                height: 200px
+                width: auto
+
+    &__footer
+        width: 100%
+        padding: 0

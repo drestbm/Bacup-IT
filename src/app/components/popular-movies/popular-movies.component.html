@@ -1,0 +1,40 @@
+<section class="movies_wrapper">
+    <mat-card class="movies_wrapper__header">
+        <mat-form-field class="movies_wrapper__header__search">
+            <mat-label>Название фильма</mat-label>
+            <input matInput [(ngModel)]="name" (ngModelChange)="searchMovies()">
+        </mat-form-field>
+    </mat-card>
+    <div *ngIf="!loading" class="movies_wrapper__list">
+        <mat-card *ngFor="let movie of getListOfMovies(); let i = index" class="movies_wrapper__list__item">
+            <mat-card-title-group>
+                <mat-card-title>{{movie.title}}</mat-card-title>
+                <mat-card-subtitle *ngIf="movie.isFavorite" class="movies_wrapper__list__item__is_favorite">
+                    В избранном
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    {{movie.release_date.slice(0, 4)}}<br>{{getGenres(movie)}}
+                </mat-card-subtitle>
+                <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
+            </mat-card-title-group>
+            <mat-card-actions align="end">
+                <button mat-button *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">+ Добавить в избранное</button>
+                <button mat-button *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">- Удалить из избранного</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <mat-spinner *ngIf="loading" class="movies_wrapper__preloader"></mat-spinner>
+    <mat-card class="movies_wrapper__footer">
+        <mat-paginator [length]="getPageSize()"
+            [pageSize]="getMovieLength()"
+            (page)="pageEvent = turnPage($event)">
+        </mat-paginator>
+    </mat-card>
+</section>
+
+<!-- <button mat-fab color="primary" class="up" aria-label="Example icon button with a delete icon">
+    <mat-icon>north</mat-icon>
+</button> -->
+
+
+

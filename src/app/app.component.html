@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span class="logo"><img src="assets/logo.png" alt="DrestX"/></span>
-    <span class="example-spacer"></span>
-    <button routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar color="primary" class="header">
+  <mat-toolbar-row class="header__navbar">
+    <span class="header__navbar__logo"><img src="assets/logo.png" alt="DrestX"/></span>
+    <span class="header__navbar__space"></span>
+    <button routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-icon-button class="header__navbar__movies" aria-label="Список популярных фильмов">
       <mat-icon>local_movies</mat-icon>
     </button>
-    <button routerLink="favorite" routerLinkActive="active" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button routerLink="favorite" routerLinkActive="active" mat-icon-button class="header__navbar__favorite" aria-label="Избранное">
       <mat-icon>favorite border</mat-icon>
     </button>
   </mat-toolbar-row>

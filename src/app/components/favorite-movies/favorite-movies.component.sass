@@ -1,0 +1,23 @@
+.content
+    display: grid
+    grid-template-rows: 1fr
+    margin: 0 auto
+    padding-top: 84px
+    padding-bottom: 20px
+    justify-items: center
+    align-items: center
+    min-height: calc(100% - 104px)
+    width: 1200px
+
+    @media only screen and (max-device-width : 1024px)
+        width: calc(100% - 20px)
+
+    .list
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr))
+        grid-gap: 10px
+        width: 100%
+
+        img
+            height: 200px
+            width: auto

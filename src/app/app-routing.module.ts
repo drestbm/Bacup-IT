@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListOfFilmsComponent } from './list-of-films/list-of-films.component'
-import { FavoriteFilmsComponent } from './favorite-films/favorite-films.component'
-import { AboutFilmComponent } from './about-film/about-film.component'
+
+import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component'
+import { FavoriteMoviesComponent } from './components/favorite-movies/favorite-movies.component'
 
 
 const routes: Routes = [
-  { path: 'favorite', component: FavoriteFilmsComponent, pathMatch:'full'},
-  { path: 'about', component: AboutFilmComponent},
-  { path: '', component: ListOfFilmsComponent, pathMatch:'full'},
+  { path: 'favorite', component: FavoriteMoviesComponent, pathMatch:'full'},
+  { path: '', component: PopularMoviesComponent, pathMatch:'full'},
 ];
 
 @NgModule({

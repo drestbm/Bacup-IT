@@ -1,0 +1,49 @@
+import { Component, OnInit } from '@angular/core'
+import {PageEvent} from '@angular/material/paginator'
+
+import { MovieModel } from '../../models/movie.model'
+
+import { LocalStorageService } from '../../services/local-storage.service'
+import { GenreService } from '../../services/genre.service'
+
+
+
+@Component({
+  selector: 'app-favorite-movies',
+  templateUrl: './favorite-movies.component.html',
+  styleUrls: ['./favorite-movies.component.sass']
+  
+})
+export class FavoriteMoviesComponent implements OnInit {
+  loading: boolean = true
+  pageEvent: PageEvent
+  
+  constructor(private localStorageService: LocalStorageService, private genresService:GenreService) {}
+
+  ngOnInit(): void {
+    this.genresService.downloadList()
+          .subscribe(() => {
+            this.localStorageService.init()
+            this.loading = false
+        })
+    
+  }
+
+  getFavoriteMovies(): MovieModel[] { 
+    return this.localStorageService.list.results.slice()
+  }
+
+  deleteFavoriteMovie(movie: MovieModel) { this.localStorageService.del(movie) }
+
+  getGenres(movie: MovieModel): string {
+    let result = ""
+    for (let genre_id of movie.genre_ids) {
+      result += ", " + this.genresService.searchGenres(genre_id)
+    }
+    return result.slice(1)
+  }
+
+  errorHandler(event) {
+    event.target.src = "assets/close.png";
+  }
+}
