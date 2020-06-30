@@ -1,13 +1,19 @@
 
 <section class="movie_wrapper" [@opacityAnimation] = "state">
     <mat-card class="movie_wrapper__content">
-        <div class="movie_wrapper__content__title">
+        <div class="movie_wrapper__content__img">
             <h1>
                 {{getMovie().title}}
             </h1>
-            <h2 *ngIf="getMovie().isFavorite" class="movie_wrapper__content__title__is_favorite">
+            <h2 *ngIf="getMovie().isFavorite" class="movie_wrapper__content__img__is_favorite">
                 В избранном
             </h2>
+            <img [src]="'https://image.tmdb.org/t/p/w300/'+getMovie().poster_path" [alt]="getMovie().title" (error)="errorHandler($event)">
+            <button mat-stroked-button color="primary" *ngIf="!getMovie().isFavorite" (click)="addFavoriteMovie()">Добавить в избранное</button>
+            <button mat-stroked-button color="warn" *ngIf="getMovie().isFavorite" (click)="delFavoriteMovie()">Удалить из избранного</button>     
+        </div>
+        <div class="movie_wrapper__content__title">
+            
             <ul>
                 <li><h2>Жанры:</h2><p>{{getGenres()}}</p></li>
                 <li><h2>Год выхода:</h2><p>{{getMovie().release_date.slice(0,4)}}</p></li>
@@ -20,11 +26,6 @@
                 <h2>Описание</h2>
                 <p>{{getMovie().overview}}</p>
             </div>
-        </div>
-        <div class="movie_wrapper__content__img">
-            <img [src]="'https://image.tmdb.org/t/p/w300/'+getMovie().poster_path" [alt]="getMovie().title" (error)="errorHandler($event)">
-            <button mat-button *ngIf="!getMovie().isFavorite" (click)="addFavoriteMovie()">+ Добавить в избранное</button>
-            <button mat-button *ngIf="getMovie().isFavorite" (click)="delFavoriteMovie()">- Удалить из избранного</button>     
         </div>
     </mat-card>
     <mat-card class="movie_wrapper__recommendations_title">
@@ -46,8 +47,8 @@
                     <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
                 </mat-card-title-group>
                 <mat-card-actions align="end">
-                    <button mat-button *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">+ Добавить в избранное</button>
-                    <button mat-button *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">- Удалить из избранного</button>
+                    <button mat-stroked-button color="primary" *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">Добавить в избранное</button>
+                    <button mat-stroked-button color="warn" *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">Удалить из избранного</button>
                 </mat-card-actions>
             </mat-card>
         </div>

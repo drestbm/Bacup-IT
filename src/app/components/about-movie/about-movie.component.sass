@@ -14,25 +14,22 @@
 
     &__content
         display: grid
-        grid-template-columns: 1fr 300px
+        grid-template-columns: 300px 1fr 
         grid-column-gap: 10px
         justify-content: center
         width: calc(100% - 32px)
+
+        @media only screen and (max-device-width : 1024px)
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr auto
         
         &__title
-            h1
-                text-align: center
-                font-size: 30px
-                margin-bottom: 0
-
-            &__is_favorite
-                text-align: center
-                font-size: 18px
-                color:#f44336
-                font-weight: 400
-
             ul
-                padding-left: 40px
+                margin-top: 48px
+                padding-left: 20px
+
+                @media only screen and (max-device-width : 1024px)
+                    margin: 0
                 li
                     display: grid
                     grid-template-columns: auto 1fr 
@@ -49,7 +46,7 @@
                         margin:0
 
             &__descr
-                padding-left: 40px
+                padding-left: 20px
                 h2
                     font-size: 18px
                     margin:0
@@ -58,15 +55,42 @@
                     margin:0
         &__img
             display: grid
-            grid-template-rows: auto 36px 
-            justify-items: center 
+            grid-template-rows: auto auto auto 36px 
+            justify-items: center
+
+            h1
+                text-align: center
+                font-size: 30px
+                margin-bottom: 0
+
+            &__is_favorite
+                position: absolute
+                top: 16px
+                right: 16px
+                text-align: end
+                font-size: 14px
+                color:#f44336
+                font-weight: 400
+
+                @media only screen and (max-device-width : 1024px)
+                    position: relative
+                    top: 0
+                    right: 0
+                    margin: 0
 
             button
-                align-self: start
+                margin-top: 5px
+                align-self: center
+
+                &:hover
+                    background-color: rgba(0, 0, 0, 0.05)
                 
             img
                 display: block
                 width:  300px
+
+                @media only screen and (max-device-width : 1024px)
+                    width: 100px
     
     &__recommendations_title
         width: calc(100% - 32px)
@@ -87,7 +111,6 @@
                     outline: none
 
                 &:hover
-                    box-shadow: 0 0 5px #f44336
                     outline: none
                     cursor: pointer
                 
@@ -97,3 +120,7 @@
                 img
                     height: 200px
                     width: auto
+
+                button
+                &:hover
+                    background-color: rgba(0, 0, 0, 0.05)

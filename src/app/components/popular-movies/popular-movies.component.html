@@ -18,8 +18,8 @@
                 <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
             </mat-card-title-group>
             <mat-card-actions align="end">
-                <button mat-button *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">+ Добавить в избранное</button>
-                <button mat-button *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">- Удалить из избранного</button>
+                <button mat-stroked-button color="primary" *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">Добавить в избранное</button>
+                <button mat-stroked-button color="warn" *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">Удалить из избранного</button>
             </mat-card-actions>
         </mat-card>
     </div>

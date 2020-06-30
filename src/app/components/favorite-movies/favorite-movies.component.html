@@ -9,12 +9,12 @@
                 <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
             </mat-card-title-group>
             <mat-card-actions align="end">
-                <button mat-button (click)="deleteFavoriteMovie(movie)">- Удалить из избранного</button>
+                <button mat-stroked-button color="warn" (click)="deleteFavoriteMovie(movie)">Удалить из избранного</button>
             </mat-card-actions>
         </mat-card>
     </div>
     <div *ngIf="getFavoriteMovies().length === 0" class="favorite_wrapper__no_item">
-        <h2 class="favorite_wrapper__no_item__title">Вы пока не добавили ни одного фильма в свой список избранного</h2>
+        <h2 class="favorite_wrapper__no_item__title">Вы пока не добавили ни одного фильма в список</h2>
         <img class="favorite_wrapper__no_item__img" src="assets/search.svg" alt="search">
     </div>
     
