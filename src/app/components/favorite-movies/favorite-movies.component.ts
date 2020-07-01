@@ -41,16 +41,4 @@ export class FavoriteMoviesComponent implements OnInit {
   }
 
   deleteFavoriteMovie(movie: MovieModel) { this.localStorageService.del(movie) }
-
-  getGenres(movie: MovieModel): string {
-    let result = ""
-    for (let genre_id of movie.genre_ids) {
-      result += ", " + this.genresService.searchGenres(genre_id)
-    }
-    return result.slice(1)
-  }
-
-  errorHandler(event) {
-    event.target.src = "assets/close.png";
-  }
 }

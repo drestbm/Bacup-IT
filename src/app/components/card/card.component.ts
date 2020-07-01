@@ -17,21 +17,21 @@ export class CardComponent implements OnInit {
   constructor(private genresService: GenreService,  private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
+    this.getGenres()
   }
 
-  getGenres(movie: MovieModel) {
-    this.genresService.searchGenres2(movie.genre_ids).subscribe(
+  getGenres() {
+    this.genresService.getGenres(this.movie.genre_ids).subscribe(
       value => this.genres = value
     )
-
   }
 
   errorHandler(event) {
     event.target.src = "assets/close.png";
   }
 
-  addFavoriteMovie(movie: MovieModel) { this.localStorageService.add(movie) }
+  addFavoriteMovie() { this.localStorageService.add(this.movie) }
 
-  delFavoriteMovie(movie: MovieModel) { this.localStorageService.del(movie) }
+  delFavoriteMovie() { this.localStorageService.del(this.movie) }
 
 }

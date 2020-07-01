@@ -18,22 +18,23 @@ export class LocalStorageService {
     }
 
     add(movie:MovieModel): void {
+        movie.isFavorite = true
         console.log(movie)
         this.list.results.push(movie)
         this.list.total_results++
         this.list.total_pages = Math.ceil(this.list.total_results / 20)
         localStorage.setItem('favoriteMovies', JSON.stringify(this.list))
-        movie.isFavorite = true
+        
     }
 
     del(movie:MovieModel): void {
         const index = this.list.results.findIndex(item => item.id === movie.id)
         if (index !== -1) {
+            movie.isFavorite = false
             this.list.results.splice(index,1)
             this.list.total_results--
             this.list.total_pages = Math.ceil(this.list.total_results / 20)
             localStorage.setItem('favoriteMovies', JSON.stringify(this.list))
-            movie.isFavorite = false
         }
     }
 }

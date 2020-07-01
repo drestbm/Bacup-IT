@@ -19,19 +19,18 @@ export class GenreService {
         this.list.genres.sort((a,b)=>{return a.id-b.id});
     }
 
-    searchGenres(id: number): Observable<string> {
+    getGenres(ids: number[]): Observable<string> {
         return new Observable((sub)=>{
-            sub.next(this.list.genres.find(item => item.id === id).name)
-        })
-    }
-
-    searchGenres2(ids: number[]): Observable<string> {
-        return new Observable((sub)=>{
-            sub.next(ids
-                .map((id)=>{
-                    this.list.genres
-                        .find(item => item.id === id).name
-                }).join(', '))
+            let genres = ""
+            ids.map((id)=>{
+                new Observable((sub_in)=>
+                {
+                    sub_in.next(this.list.genres.find(item => item.id === id).name)
+                }).subscribe((value)=>{
+                    genres += ', ' + value
+                })
+            })
+            sub.next(genres.slice(1))
         })
     }
 }
