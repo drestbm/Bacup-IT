@@ -1,12 +1,33 @@
 # BacupIT
 
-Angular CLI version 10.0.0.
-URL: https://drestbm.github.io/Bacup-IT/
+Приложение написано на Angular CLI v 10.0.0./n
+Ссылка на gighub pages: https://drestbm.github.io/Bacup-IT/
+
+## Installation
+
+Для работы приложения нужно установить Angular CLI:
+```bash
+npm install -g @angular/cli
+```
+
+Установка самого приложения:
+```bash
+git clone https://github.com/drestbm/Bacup-IT.git
+cd Bacup-IT
+npm i
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+Запуск сервера разработки:
+```bash
+ng serve
+```
 
 ## Build
 
-Run `ng build` to build the project.
+Сборка приложения:
+```bash
+ng build
+```
+Собранное приложение вы сможете найти в папке `dist`
