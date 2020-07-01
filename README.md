@@ -1,7 +1,7 @@
 # BacupIT
 
 Angular CLI version 10.0.0.
-URL: https://github.com/drestbm/Bacup-IT
+URL: https://drestbm.github.io/Bacup-IT/
 
 ## Development server
 
