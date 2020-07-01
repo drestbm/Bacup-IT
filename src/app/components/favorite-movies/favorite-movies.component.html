@@ -1,17 +1,6 @@
 <section class="favorite_wrapper" [@opacityAnimation] = "state">
     <div *ngIf="!loading" class="favorite_wrapper__list">
-        <mat-card *ngFor="let movie of getFavoriteMovies(); let i = index" class="favorite_wrapper__list__item">
-            <mat-card-title-group [routerLink]="['/movie',movie.id]">
-                <mat-card-title>{{movie.title}}</mat-card-title>
-                <mat-card-subtitle>
-                    {{movie.release_date.slice(0, 4)}}<br>{{getGenres(movie)}}
-                </mat-card-subtitle>
-                <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
-            </mat-card-title-group>
-            <mat-card-actions align="end">
-                <button mat-stroked-button color="warn" (click)="deleteFavoriteMovie(movie)">Удалить из избранного</button>
-            </mat-card-actions>
-        </mat-card>
+        <card *ngFor="let movie of getFavoriteMovies(); let i = index" [movie]=movie [justDel]="true"></card>
     </div>
     <div *ngIf="getFavoriteMovies().length === 0" class="favorite_wrapper__no_item">
         <h2 class="favorite_wrapper__no_item__title">Вы пока не добавили ни одного фильма в список</h2>

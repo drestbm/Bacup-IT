@@ -6,7 +6,10 @@
         </mat-form-field>
     </mat-card>
     <div *ngIf="!loading" class="movies_wrapper__list">
-        <mat-card *ngFor="let movie of getListOfMovies(); let i = index"  class="movies_wrapper__list__item">
+        <card *ngFor="let movie of getListOfMovies(); let i = index" [movie]=movie>
+
+        </card>
+        <!-- <mat-card *ngFor="let movie of getListOfMovies(); let i = index"  class="movies_wrapper__list__item">
             <mat-card-title-group [routerLink]="['movie',movie.id]">
                 <mat-card-title>{{movie.title}}</mat-card-title>
                 <mat-card-subtitle *ngIf="movie.isFavorite" class="movies_wrapper__list__item__is_favorite">
@@ -21,7 +24,7 @@
                 <button mat-stroked-button color="primary" *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">Добавить в избранное</button>
                 <button mat-stroked-button color="warn" *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">Удалить из избранного</button>
             </mat-card-actions>
-        </mat-card>
+        </mat-card> -->
     </div>
     <mat-card class="movies_wrapper__footer">
         <mat-paginator [length]="getPageSize()"

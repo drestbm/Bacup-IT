@@ -35,22 +35,7 @@
     </mat-card>
     <div class="movie_wrapper__recommendations_content">
         <div class="movie_wrapper__recommendations_content__list">
-            <mat-card *ngFor="let movie of getRecommend().results; let i = index"  class="movie_wrapper__recommendations_content__list__item">
-                <mat-card-title-group [routerLink]="['/movie',movie.id]">
-                    <mat-card-title>{{movie.title}}</mat-card-title>
-                    <mat-card-subtitle *ngIf="movie.isFavorite" class="movie_wrapper__recommendations_content__list__item__is_favorite">
-                        В избранном
-                    </mat-card-subtitle>
-                    <mat-card-subtitle class="movie_wrapper__recommendations_content__list__item__descr">
-                        {{movie.release_date.slice(0, 4)}}<br>{{getGenres(movie)}}
-                    </mat-card-subtitle>
-                    <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
-                </mat-card-title-group>
-                <mat-card-actions align="end">
-                    <button mat-stroked-button color="primary" *ngIf="!movie.isFavorite" (click)="addFavoriteMovie(movie)">Добавить в избранное</button>
-                    <button mat-stroked-button color="warn" *ngIf="movie.isFavorite" (click)="delFavoriteMovie(movie)">Удалить из избранного</button>
-                </mat-card-actions>
-            </mat-card>
+            <card *ngFor="let movie of getRecommend(); let i = index" [movie]=movie></card>
         </div>
     </div>
 </section>

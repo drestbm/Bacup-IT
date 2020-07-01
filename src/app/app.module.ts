@@ -11,7 +11,8 @@ import { AppComponent } from './app.component'
 
 import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component'
 import { FavoriteMoviesComponent } from './components/favorite-movies/favorite-movies.component';
-import { AboutMovieComponent } from './components/about-movie/about-movie.component'
+import { AboutMovieComponent } from './components/about-movie/about-movie.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AboutMovieComponent } from './components/about-movie/about-movie.compon
     PopularMoviesComponent,
     FavoriteMoviesComponent,
     AboutMovieComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<mat-card class="card_wrapper">
+    <mat-card-title-group [routerLink]="['/movie',movie.id]">
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle *ngIf="movie.isFavorite" class="card_wrapper__is_favorite">
+            В избранном
+        </mat-card-subtitle>
+        <mat-card-subtitle class="card_wrapper__descr">
+            {{movie.release_date.slice(0, 4)}}<br>{{genres}}
+        </mat-card-subtitle>
+        <img mat-card-lg-image [src]="'https://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title" (error)="errorHandler($event)">
+    </mat-card-title-group>
+    <mat-card-actions align="end">
+        <button mat-stroked-button color="primary" *ngIf="!movie.isFavorite && !justDel" (click)="addFavoriteMovie(movie)">Добавить в избранное</button>
+        <button mat-stroked-button color="warn" *ngIf="movie.isFavorite || justDel" (click)="delFavoriteMovie(movie)">Удалить из избранного</button>
+    </mat-card-actions>
+</mat-card>

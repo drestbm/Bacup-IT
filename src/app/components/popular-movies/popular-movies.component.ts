@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core'
 import {PageEvent} from '@angular/material/paginator'
+import { forkJoin } from 'rxjs'
 
 import { MovieModel } from '../../models/movie.model'
 
 import { PopularMoviesService } from '../../services/popular-movies.service'
 import { GenreService } from '../../services/genre.service'
 import { LocalStorageService } from '../../services/local-storage.service'
-import { forkJoin } from 'rxjs'
+
 import { animation } from '../../includes/animation.module'
+
 
 @Component({
   selector: 'app-popular-movies',
@@ -28,7 +30,7 @@ export class PopularMoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.localStorageService.init()
-
+    window.scrollTo(0,0)
     forkJoin(
       this.popularMoviesService.downloadList(),
       this.genresService.downloadList()
@@ -36,14 +38,6 @@ export class PopularMoviesComponent implements OnInit {
       this.loading = false 
       this.state= "visible"
     })
-  }
-
-  getGenres(movie: MovieModel): string {
-    let result = ""
-    for (let genre_id of movie.genre_ids) {
-      result += ", " + this.genresService.searchGenres(genre_id)
-    }
-    return result.slice(1)
   }
 
   turnPage(event?:PageEvent): PageEvent {
@@ -83,11 +77,4 @@ export class PopularMoviesComponent implements OnInit {
 
   getMovieLength() { return this.popularMoviesService.list.results.length }
 
-  addFavoriteMovie(movie: MovieModel) { this.localStorageService.add(movie) }
-
-  delFavoriteMovie(movie: MovieModel) { this.localStorageService.del(movie) }
-
-  errorHandler(event) {
-    event.target.src = "assets/close.png";
-  }
 }

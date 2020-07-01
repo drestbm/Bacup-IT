@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'Bacup-IT';
 
   constructor() {}
+
+  scrollUp() {
+      window.scrollTo(0,0)
+  }
 }

@@ -36,6 +36,8 @@ export class AboutMovieComponent implements OnInit {
     this.id = this.activateRoute.snapshot.params['id'];
     this.subscription = this.activateRoute.params
       .subscribe(params=>{
+        this.state = "invisible"
+        window.scrollTo(0,0)
         this.id=params['id']
         forkJoin(
           this.movieService.downloadInfo(this.id),
@@ -52,7 +54,7 @@ export class AboutMovieComponent implements OnInit {
   }
 
   getRecommend() {
-    return this.movieService.recommend
+    return this.movieService.recommend.results.slice(0,6)
   }
 
   getGenres(): string {

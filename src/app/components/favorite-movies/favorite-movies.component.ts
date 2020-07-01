@@ -26,6 +26,7 @@ export class FavoriteMoviesComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService, private genresService:GenreService) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
     this.genresService.downloadList()
           .subscribe(() => {
             this.localStorageService.init()

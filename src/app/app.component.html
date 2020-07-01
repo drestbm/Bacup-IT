@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="header">
   <mat-toolbar-row class="header__navbar">
-    <span class="header__navbar__logo"><img src="assets/logo.png" alt="DrestX"/></span>
+    <span class="header__navbar__logo" (click)="scrollUp()"><img src="assets/logo.png" alt="DrestX"/></span>
     <span class="header__navbar__space"></span>
     <button routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-icon-button class="header__navbar__movies" aria-label="Список популярных фильмов">
       <mat-icon>local_movies</mat-icon>
@@ -10,4 +10,4 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-<router-outlet #outlet="outlet"></router-outlet>
+<router-outlet id="content" #outlet="outlet"></router-outlet>

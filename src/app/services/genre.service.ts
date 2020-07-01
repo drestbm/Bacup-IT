@@ -3,6 +3,7 @@ import { HttpClient }   from '@angular/common/http';
 import { GenresModel } from '../models/genres.model'
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Injectable({providedIn: 'root'})
 export class GenreService {
@@ -18,7 +19,19 @@ export class GenreService {
         this.list.genres.sort((a,b)=>{return a.id-b.id});
     }
 
-    searchGenres(id: number): string {
-        return this.list.genres.find(item => item.id === id).name;
+    searchGenres(id: number): Observable<string> {
+        return new Observable((sub)=>{
+            sub.next(this.list.genres.find(item => item.id === id).name)
+        })
+    }
+
+    searchGenres2(ids: number[]): Observable<string> {
+        return new Observable((sub)=>{
+            sub.next(ids
+                .map((id)=>{
+                    this.list.genres
+                        .find(item => item.id === id).name
+                }).join(', '))
+        })
     }
 }
