@@ -1,7 +1,8 @@
 # BacupIT
 
-Приложение написано на Angular CLI v 10.0.0./n
-Ссылка на gighub pages: https://drestbm.github.io/Bacup-IT/
+Приложение написано на Angular CLI v 10.0.0.
+
+Ссылка на github pages: https://drestbm.github.io/Bacup-IT/
 
 ## Installation
 
